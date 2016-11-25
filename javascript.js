@@ -1,21 +1,27 @@
 $(function() {
-  var turn = 0;
-  $('td').on('click', function() {
 
+  var turn = 0;
+  var clearMsg = function() {
+    $('#msg-text').text("")
+  };
+
+  $('td').on('click', function() {
+    clearMsg();
     if ($(this).text() === "") {
       if (turn % 2 === 0) {
-      $(this).text('X');
+        $(this).text('X');
       } else {
-      $(this).text('O');
+        $(this).text('O');
       };
-      turn ++; } else {
+      turn ++;
+    } else {
+      $('#msg-text').text("Cell taken, try another.");
     };
   });
 
   $('button').on('click', function() {
     $('.table-board td').empty();
+    clearMsg();
   });
 
 });
-
-// don't allow the value to change if it isn't clear

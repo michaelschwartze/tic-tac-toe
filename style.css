@@ -1,3 +1,7 @@
+html {
+  text-align: center;
+}
+
 .table-board {
   border-collapse: collapse;
   margin: auto;
@@ -7,12 +11,11 @@
 td, tr {
   font-size: 55px;
   border: 1px solid grey;
-  text-align: center;
   width: 100px;
   height: 100px;
 }
 
-button {
+.menu {
   margin: auto;
   display: block;
 }
