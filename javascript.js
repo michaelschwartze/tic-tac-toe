@@ -8,23 +8,24 @@ $(function() {
   };
 
   function areEqual() {
-    var len = arguments.length;
-    for (var i = 1; i< len; i++){
+    for (var i = 1; i < arguments.length; i++){
       if (arguments[i] == null || arguments[i] != arguments[i-1] || arguments[i] === "")
         return false;
     }
     return true;
   };
 
-  console.log(areEqual(1,1,1,1,3,1));
-
   var checkForWin = function(){
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i <= 2; i++) {
       var row = $('*[data-row-num=' + (i + 1) + '] td').text();
       var a = row.substr(0,1);
       var b = row.substr(1,1);
       var c = row.substr(2,1);
-      if (areEqual(a,b,c) === true) {
+      var col = $('*[data-col-num=' + (i + 1) + ']').text();
+      var d = col.substr(0,1);
+      var e = col.substr(1,1);
+      var f = col.substr(2,1);
+      if ((areEqual(a,b,c) === true) || (areEqual(d,e,f) === true)) {
         $('#msg-text').text(row.substr(0,1)+ ' Wins!');
         gameStatus = 'over';
       }
